@@ -13,19 +13,19 @@ import com.sun.xml.internal.ws.client.sei.ResponseBuilder.Body;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class UsuarioInclusaoTests {
-	
-	String urlBase = "https://petstore.swagger.io/v2";
+public class UsuarioInclusaoTest {
 	
 	@Test
 	public void testIncluirUsuario_InclusaoComSucesso() {
+		
+		String urlBase = "https://petstore.swagger.io/v2";
 		
 		List<JSONObject> request = new ArrayList<JSONObject>();
 		
 		// Informando os dados do usuário Ana
 		JSONObject ana = new JSONObject();
-		ana.put("id", "1");
-		ana.put("username", "anamaria");
+		ana.put("id", "195412081");
+		ana.put("username", "ana195412081");
 		ana.put("firstName", "Ana");
 		ana.put("lastname", "Maria");
 		ana.put("email", "anamaria@test.com");
@@ -36,15 +36,27 @@ public class UsuarioInclusaoTests {
 		
 		// Informando os dados do usuário Rodrigo
 		JSONObject rodrigo = new JSONObject();
-		rodrigo.put("id", "1");
-		rodrigo.put("username", "rodrigomendes");
+		rodrigo.put("id", "1954120812");
+		rodrigo.put("username", "rodrigo195412081");
 		rodrigo.put("firstName", "Rodrigo");
 		rodrigo.put("lastname", "Mendes");
 		rodrigo.put("email", "rodrigo@test.com");
 		rodrigo.put("password", "rodrigo");
-		rodrigo.put("phone", "1199999999");
+		rodrigo.put("phone", "11988888888");
 		rodrigo.put("userStatus", "1"); // Status 1 = Ativo
 		request.add(rodrigo);
+		
+		// Informando os dados do usuário Tatiana
+		JSONObject tatiana = new JSONObject();
+		tatiana.put("id", "1954120813");
+		tatiana.put("username", "tatiana195412081");
+		tatiana.put("firstName", "Tatiana");
+		tatiana.put("lastname", "Vasconcelos");
+		tatiana.put("email", "tatiana@test.com");
+		tatiana.put("password", "tatiana");
+		tatiana.put("phone", "11977777777");
+		tatiana.put("userStatus", "1"); // Status 1 = Ativo
+		request.add(tatiana);
 		
 		System.out.println(request);
 		
@@ -61,16 +73,9 @@ public class UsuarioInclusaoTests {
 		
 		String jsonStringResponse = res.asString();
 		Assert.assertEquals(jsonStringResponse.contains("ok"), true);		
+		
 	}
 	
-	@Test
-	public void testConsultaUsuario_UsuarioConcultadoComSucesso() {
 
-		given()
-		.when()
-			.get(urlBase + "/user/anamaria")
-		.then()
-			.statusCode(200);		
-	}
 
 }
