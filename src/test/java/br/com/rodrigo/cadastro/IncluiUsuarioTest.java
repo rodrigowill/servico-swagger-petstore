@@ -13,7 +13,7 @@ import com.sun.xml.internal.ws.client.sei.ResponseBuilder.Body;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-public class UsuarioInclusaoTest {
+public class IncluiUsuarioTest {
 	
 	@Test
 	public void testIncluirUsuario_InclusaoComSucesso() {
