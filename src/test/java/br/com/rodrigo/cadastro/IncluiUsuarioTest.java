@@ -1,19 +1,50 @@
 package br.com.rodrigo.cadastro;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
-import static org.hamcrest.Matchers.*;
+
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 
-import com.sun.xml.internal.ws.client.sei.ResponseBuilder.Body;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+@RunWith(Parameterized.class)
 public class IncluiUsuarioTest {
+	
+	@Parameter
+	public int id;
+	@Parameter(value=1)
+	public String username;
+	@Parameter(value=2)
+	public String firstName;
+	@Parameter(value=3)
+	public String lastname;
+	@Parameter(value=4)
+	public String email;
+	@Parameter(value=5)
+	public String password;
+	@Parameter(value=6)
+	public String phone;
+	@Parameter(value=7)
+	public int userStatus;
+	
+	@Parameters
+	public static Collection<Object[]> getCollection(){
+		return Arrays.asList(new Object[][] {
+			{195412081, "ana195412081", "Ana", "Maia", "anamaria@test.com", "ana", "1199999999", 1},
+			{195412082, "rodrigo195412081", "Rodrigo", "Mendes", "rodrigo@test.com", "rodrigo", "11988888888", 1},
+			{195412083, "tatiana195412081", "Tatiana", "Vasconcelos", "tatiana@test.com", "tatiana", "11977777777", 1}
+		});
+	}
 	
 	@Test
 	public void testIncluirUsuario_InclusaoComSucesso() {
@@ -22,43 +53,17 @@ public class IncluiUsuarioTest {
 		
 		List<JSONObject> request = new ArrayList<JSONObject>();
 		
-		// Informando os dados do usuário Ana
-		JSONObject ana = new JSONObject();
-		ana.put("id", "195412081");
-		ana.put("username", "ana195412081");
-		ana.put("firstName", "Ana");
-		ana.put("lastname", "Maia");
-		ana.put("email", "anamaria@test.com");
-		ana.put("password", "ana");
-		ana.put("phone", "1199999999");
-		ana.put("userStatus", "1"); // Status 1 = Ativo
-		request.add(ana);
+		JSONObject usuario = new JSONObject();
+		usuario.put("id", id);
+		usuario.put("username", username);
+		usuario.put("firstName", firstName);
+		usuario.put("lastname", lastname);
+		usuario.put("email", email);
+		usuario.put("password", password);
+		usuario.put("phone", phone);
+		usuario.put("userStatus", userStatus); // Status 1 = Ativo
 		
-		// Informando os dados do usuário Rodrigo
-		JSONObject rodrigo = new JSONObject();
-		rodrigo.put("id", "195412082");
-		rodrigo.put("username", "rodrigo195412081");
-		rodrigo.put("firstName", "Rodrigo");
-		rodrigo.put("lastname", "Mendes");
-		rodrigo.put("email", "rodrigo@test.com");
-		rodrigo.put("password", "rodrigo");
-		rodrigo.put("phone", "11988888888");
-		rodrigo.put("userStatus", "1"); // Status 1 = Ativo
-		request.add(rodrigo);
-		
-		// Informando os dados do usuário Tatiana
-		JSONObject tatiana = new JSONObject();
-		tatiana.put("id", "195412083");
-		tatiana.put("username", "tatiana195412081");
-		tatiana.put("firstName", "Tatiana");
-		tatiana.put("lastname", "Vasconcelos");
-		tatiana.put("email", "tatiana@test.com");
-		tatiana.put("password", "tatiana");
-		tatiana.put("phone", "11977777777");
-		tatiana.put("userStatus", "1"); // Status 1 = Ativo
-		request.add(tatiana);
-		
-		System.out.println(request);
+		request.add(usuario);
 		
 		Response res=
 			given()

@@ -3,22 +3,16 @@ package br.com.rodrigo.cadastro;
 import static io.restassured.RestAssured.given;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.json.simple.JSONObject;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
-
-import io.restassured.response.Response;
-
-import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 public class IncluiOrderTest {

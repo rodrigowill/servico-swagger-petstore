@@ -5,6 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import br.com.rodrigo.cadastro.AlterarStatusOrderTest;
+import br.com.rodrigo.cadastro.ConsultaOrderTest;
 import br.com.rodrigo.cadastro.DeletarOrderTest;
 import br.com.rodrigo.cadastro.IncluiOrderTest;
 import br.com.rodrigo.cadastro.IncluiPetTest;
@@ -16,9 +17,9 @@ import br.com.rodrigo.cadastro.IncluiUsuarioTest;
 	IncluiPetTest.class,
 	IncluiOrderTest.class,
 	DeletarOrderTest.class,
-	AlterarStatusOrderTest.class
+	AlterarStatusOrderTest.class,
+	ConsultaOrderTest.class
 })
 public class SuiteTeste {
 	
-
 }
