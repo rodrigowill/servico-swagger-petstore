@@ -27,16 +27,16 @@ public class IncluiUsuarioTest {
 		ana.put("id", "195412081");
 		ana.put("username", "ana195412081");
 		ana.put("firstName", "Ana");
-		ana.put("lastname", "Maria");
+		ana.put("lastname", "Maia");
 		ana.put("email", "anamaria@test.com");
-		ana.put("password", "maria");
+		ana.put("password", "ana");
 		ana.put("phone", "1199999999");
 		ana.put("userStatus", "1"); // Status 1 = Ativo
 		request.add(ana);
 		
 		// Informando os dados do usuário Rodrigo
 		JSONObject rodrigo = new JSONObject();
-		rodrigo.put("id", "1954120812");
+		rodrigo.put("id", "195412082");
 		rodrigo.put("username", "rodrigo195412081");
 		rodrigo.put("firstName", "Rodrigo");
 		rodrigo.put("lastname", "Mendes");
@@ -48,7 +48,7 @@ public class IncluiUsuarioTest {
 		
 		// Informando os dados do usuário Tatiana
 		JSONObject tatiana = new JSONObject();
-		tatiana.put("id", "1954120813");
+		tatiana.put("id", "195412083");
 		tatiana.put("username", "tatiana195412081");
 		tatiana.put("firstName", "Tatiana");
 		tatiana.put("lastname", "Vasconcelos");
